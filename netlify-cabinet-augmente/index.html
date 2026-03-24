@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cabinet Augmente</title>
+  <meta
+    name="description"
+    content="Cabinet Augmente aide les avocats a automatiser jusqu'a 40% de leur charge operationnelle et a recuperer 10h+ par semaine sans recruter."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #f5f8fd;
+      --bg-soft: #e9f0fb;
+      --surface: #ffffff;
+      --text: #222222;
+      --muted: #4a5974;
+      --navy: #1e3a78;
+      --blue: #204e97;
+      --red: #b5121b;
+      --red-dark: #8f0e15;
+      --line: #cfdbef;
+      --white: #ffffff;
+      --shadow: 0 18px 50px rgba(30, 58, 120, 0.08);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Open Sans", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(32, 78, 151, 0.08), transparent 30%),
+        linear-gradient(180deg, #fbfdff 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 88px 0;
+    }
+
+    .section-alt {
+      background: var(--bg-soft);
+    }
+
+    .section-soft {
+      background: var(--surface);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid rgba(32, 78, 151, 0.22);
+      background: rgba(32, 78, 151, 0.08);
+      border-radius: 999px;
+      color: var(--blue);
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 18px;
+      line-height: 1.06;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      font-family: "Montserrat", sans-serif;
+      color: var(--navy);
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 6vw, 5.2rem);
+      max-width: 980px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      max-width: 920px;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+    }
+
+    p {
+      margin: 0 0 18px;
+      font-size: 1.04rem;
+    }
+
+    .lead {
+      font-size: 1.22rem;
+      color: var(--muted);
+      max-width: 860px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 58px;
+      padding: 0 28px;
+      border-radius: 999px;
+      background: var(--red);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1rem;
+      font-family: "Montserrat", sans-serif;
+      box-shadow: 0 14px 30px rgba(181, 18, 27, 0.22);
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      background: var(--red-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 18px 36px rgba(181, 18, 27, 0.28);
+    }
+
+    .hero {
+      padding: 46px 0 96px;
+    }
+
+    .hero-grid,
+    .grid-2,
+    .grid-3,
+    .quote-grid,
+    .faq-grid,
+    .price-grid,
+    .compare-grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .hero-grid {
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .grid-2,
+    .compare-grid,
+    .price-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .quote-grid,
+    .faq-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card,
+    .hero-card,
+    .quote,
+    .faq-item,
+    .offer-box,
+    .price-panel,
+    .module {
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-list,
+    .check-list,
+    .bullet-list,
+    .offer-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .hero-list li,
+    .check-list li,
+    .bullet-list li,
+    .offer-list li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 12px;
+    }
+
+    .hero-list li::before,
+    .check-list li::before,
+    .bullet-list li::before,
+    .offer-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+
+    .proof {
+      color: var(--muted);
+      font-size: 0.96rem;
+      margin-top: 16px;
+    }
+
+    .stat-wrap {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .stat {
+      background: linear-gradient(180deg, #ffffff 0%, #f3f7ff 100%);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 18px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.7rem;
+      color: var(--navy);
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .module {
+      border-left: 4px solid var(--red);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+
+    .offer-box {
+      background: linear-gradient(180deg, #ffffff 0%, #eef4ff 100%);
+    }
+
+    .offer-list {
+      columns: 2;
+      column-gap: 28px;
+      margin-top: 20px;
+    }
+
+    .offer-list li {
+      break-inside: avoid;
+    }
+
+    .price-tag {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1;
+      color: var(--red);
+      margin: 8px 0 14px;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 800;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .small {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .highlight {
+      color: var(--red);
+      font-weight: 700;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .grid-2,
+      .grid-3,
+      .quote-grid,
+      .faq-grid,
+      .price-grid,
+      .compare-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .offer-list {
+        columns: 1;
+      }
+
+      .stat-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(calc(100% - 28px), var(--max));
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .cta-row {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Formation premium pour avocats</span>
+        <h1>Vous n'avez pas besoin d'embaucher pour respirer. Vous avez besoin d'eliminer jusqu'a 40% du travail inutile du cabinet.</h1>
+        <p class="lead">
+          Cabinet Augmente montre aux avocats comment recuperer 10h+ par semaine grace a l'IA,
+          sans sacrifier la rigueur, sans devenir technicien, et sans perdre le controle.
+        </p>
+        <ul class="hero-list">
+          <li>Moins d'administratif</li>
+          <li>Plus de temps facturable</li>
+          <li>Plus de maitrise, moins de chaos</li>
+        </ul>
+        <div class="cta-row">
+          <a href="#offre" class="btn">Je veux decouvrir Cabinet Augmente</a>
+        </div>
+        <p class="proof">
+          Pense pour des avocats en cabinet individuel, cabinets d'affaires et structures de 5 a 50 collaborateurs.
+        </p>
+      </div>
+
+      <div class="hero-card">
+        <h3>Le vrai probleme</h3>
+        <p>Vous ne manquez pas de competence. Vous manquez de bande passante.</p>
+        <p>
+          Et chaque semaine, ce manque de bande passante vous coute de l'argent, de l'energie,
+          des opportunites et une partie de votre qualite de vie.
+        </p>
+        <div class="stat-wrap">
+          <div class="stat">
+            <strong>10h+</strong>
+            <span class="small">a recuperer chaque semaine</span>
+          </div>
+          <div class="stat">
+            <strong>40%</strong>
+            <span class="small">de charge invisible ciblable</span>
+          </div>
+          <div class="stat">
+            <strong>0</strong>
+            <span class="small">recrutement necessaire pour demarrer</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="container">
+      <h2>Le cabinet vous vide par petites fuites.</h2>
+      <div class="grid-2">
+        <div class="card">
+          <p>
+            Ce ne sont pas toujours les gros dossiers qui vous epuisent.
+            Ce sont les dizaines de petites taches qui se glissent partout :
+            relances, syntheses, tri, reformulations, premieres versions, comptes-rendus,
+            recherches preparatoires, classement, suivi.
+          </p>
+          <p>
+            Individuellement, rien de dramatique. Ensemble, c'est un siphon permanent.
+          </p>
+        </div>
+        <div class="card">
+          <ul class="check-list">
+            <li>Vous travaillez beaucoup, mais pas toujours sur ce qui rapporte le plus</li>
+            <li>Vous etes constamment interrompu par de l'execution de faible valeur</li>
+            <li>Vous gardez trop de choses en tete</li>
+            <li>Vous perdez de la marge sans toujours vous en rendre compte</li>
+            <li>Vous repoussez votre developpement parce que vous etes deja plein</li>
+          </ul>
+        </div>
+      </div>
+      <p class="lead" style="margin-top:24px;">
+        Le pire ? Vous pouvez finir la journee epuise tout en ayant l'impression de ne pas avoir avance.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Avant / Apres Cabinet Augmente</h2>
+      <div class="compare-grid">
+        <div class="card">
+          <h3>Avant</h3>
+          <ul class="bullet-list">
+            <li>Vous ouvrez votre boite mail avec une legere tension</li>
+            <li>Chaque dossier genere une cascade de micro-taches chronophages</li>
+            <li>Vous vous dites souvent "je vais le faire moi-meme, ce sera plus rapide"</li>
+            <li>Vous absorbez du non-facturable a haute dose</li>
+            <li>Votre cabinet depend trop de votre presence permanente</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Apres</h3>
+          <ul class="bullet-list">
+            <li>Vous faites produire les premieres couches repetitives plus vite</li>
+            <li>Vous gardez la strategie, l'analyse, la validation finale</li>
+            <li>Vous traitez plus de dossiers avec moins de friction</li>
+            <li>Vous recuperez 10h+ par semaine</li>
+            <li>Vous retrouvez de l'air sans augmenter vos charges fixes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2>La promesse est simple</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Plus de temps</h3>
+          <p>Vous retirez du cabinet une part massive du travail repetitif qui n'a jamais merite votre meilleur cerveau.</p>
+        </div>
+        <div class="card">
+          <h3>Plus d'argent</h3>
+          <p>Chaque heure recuperee peut etre reinvestie en facturable, en qualite client ou en developpement du cabinet.</p>
+        </div>
+        <div class="card">
+          <h3>Plus de serenite</h3>
+          <p>Vous ne subissez plus le flux. Vous le structurez. Vous reprenez la main.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Ce que vous obtenez concretement</h2>
+      <p class="lead">
+        Pas une formation vague sur l'IA. Un systeme operationnel pour un cabinet qui veut des gains reels, vite.
+      </p>
+      <div class="grid-2">
+        <div class="card">
+          <ul class="check-list">
+            <li>Le programme complet Cabinet Augmente</li>
+            <li>Des modules d'implementation cibles cabinet</li>
+            <li>Des prompts premium prets a l'emploi</li>
+            <li>Des scripts pour les taches recurrentes</li>
+            <li>Un systeme d'automatisation concret</li>
+          </ul>
+        </div>
+        <div class="card">
+          <ul class="check-list">
+            <li>Des check-lists de validation</li>
+            <li>Des procedures internes pretes a adapter</li>
+            <li>Des cas d'usage surs et rentables</li>
+            <li>Une bibliotheque de templates</li>
+            <li>Les mises a jour incluses</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top:24px;"><strong>Vous n'achetez pas "de l'IA". Vous achetez du temps, de la marge et du controle.</strong></p>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="container">
+      <h2>Le programme</h2>
+      <div class="grid-2">
+        <div class="module">
+          <h3>Module 1 - Trouver immediatement ce qui vous fait perdre du temps</h3>
+          <p>Vous identifiez les taches ou l'IA cree un levier rapide sans fragiliser la qualite.</p>
+        </div>
+        <div class="module">
+          <h3>Module 2 - Poser un cadre d'usage serieux</h3>
+          <p>Vous utilisez l'IA avec des regles claires, pas a l'instinct.</p>
+        </div>
+        <div class="module">
+          <h3>Module 3 - Rediger beaucoup plus vite</h3>
+          <p>Emails, notes, syntheses, premieres versions : moins de temps, plus de fluidite.</p>
+        </div>
+        <div class="module">
+          <h3>Module 4 - Resumer et exploiter l'information</h3>
+          <p>Vous faites remonter l'essentiel plus vite dans les dossiers lourds.</p>
+        </div>
+        <div class="module">
+          <h3>Module 5 - Automatiser la mecanique invisible</h3>
+          <p>Relances, comptes-rendus, suivi interne, routines administratives.</p>
+        </div>
+        <div class="module">
+          <h3>Module 6 - Construire votre systeme Cabinet Augmente</h3>
+          <p>Vous assemblez workflows, templates et automatisations en un vrai levier durable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Ce que vous gagnez vraiment</h2>
+      <div class="grid-2">
+        <div class="card">
+          <ul class="check-list">
+            <li><strong>10h a 15h par semaine</strong> recuperees</li>
+            <li><strong>Plus de temps facturable</strong> sans rallonger vos journees</li>
+            <li><strong>Moins de fatigue mentale</strong></li>
+            <li><strong>Un cabinet plus reactif</strong></li>
+            <li><strong>Une meilleure marge</strong> sans embaucher d'abord</li>
+            <li><strong>Un avantage concurrentiel</strong> immediat</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Le calcul est brutalement simple</h3>
+          <p>
+            Si vous valorisez votre heure a 200 EUR et que vous recuperez 10h par semaine,
+            cela represente <span class="highlight">2 000 EUR de temps revalorisable chaque semaine</span>.
+          </p>
+          <p>
+            Meme si vous ne convertissez qu'une partie de ce temps en facturable ou en capacite utile,
+            la formation peut se rentabiliser extremement vite.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="grid-2">
+        <div class="card">
+          <h2>Ce que vous perdez a ne rien faire</h2>
+          <ul class="bullet-list">
+            <li>Des heures non facturables, semaine apres semaine</li>
+            <li>Une fatigue qui s'accumule sans se voir</li>
+            <li>Des retards invisibles dans l'execution</li>
+            <li>Des opportunites de croissance repoussees</li>
+            <li>Une dependance chronique a votre propre disponibilite</li>
+          </ul>
+          <p><strong>L'inaction a un cout. Et il tourne deja.</strong></p>
+        </div>
+        <div class="card">
+          <h2>Ce que font les avocats en avance</h2>
+          <ul class="bullet-list">
+            <li>Ils automatisent avant d'embaucher</li>
+            <li>Ils standardisent avant de grossir</li>
+            <li>Ils utilisent l'IA comme levier de productivite, pas comme gadget</li>
+            <li>Ils prennent de l'avance pendant que les autres hesitent</li>
+          </ul>
+          <p><strong>Le marche ne recompense pas les plus occupes. Il recompense les plus efficaces.</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Ils en parlent mieux que nous</h2>
+      <div class="quote-grid">
+        <div class="quote">
+          <p>"Je pensais que l'IA etait surtout du bruit marketing. En realite, on a supprime une partie enorme des micro-taches qui ralentissaient le cabinet."</p>
+          <p><strong>Claire M., avocate en droit social, Lyon</strong></p>
+        </div>
+        <div class="quote">
+          <p>"Le plus important pour moi n'a pas ete la vitesse. Ca a ete le cadre. On sait quoi deleguer, quoi verifier, et comment rester irreprochable."</p>
+          <p><strong>Thomas R., avocat associe, Paris</strong></p>
+        </div>
+        <div class="quote">
+          <p>"J'ai recupere entre 8 et 12 heures par semaine des le premier mois. C'est probablement l'investissement le plus rentable qu'on ait fait cette annee."</p>
+          <p><strong>Sophie L., avocate en cabinet individuel, Bruxelles</strong></p>
+        </div>
+        <div class="quote">
+          <p>"On a arrete de subir l'operationnel. On a enfin commence a le piloter."</p>
+          <p><strong>Julien D., cabinet de 9 collaborateurs, Bordeaux</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="container">
+      <h2>Objections</h2>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>Je ne suis pas technique</h3>
+          <p>Tant mieux. Cette offre a ete construite pour des avocats, pas pour des ingenieurs.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Je n'ai pas le temps</h3>
+          <p>C'est precisement pour ca qu'il faut agir. Le cout de l'attente est deja superieur au cout de la mise en place.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Et le RGPD ?</h3>
+          <p>Le sujet est traite serieusement. L'idee n'est pas d'aller vite n'importe comment, mais d'augmenter le cabinet avec cadre et controle.</p>
+        </div>
+        <div class="faq-item">
+          <h3>J'ai peur de perdre la main</h3>
+          <p>Vous gardez toujours la strategie, le discernement, l'analyse et la validation finale.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="offre">
+    <div class="container">
+      <div class="offer-box">
+        <span class="eyebrow">L'offre</span>
+        <h2>Tout ce que vous recevez avec Cabinet Augmente</h2>
+        <ul class="offer-list">
+          <li>Le programme complet Cabinet Augmente</li>
+          <li>Les modules video d'implementation</li>
+          <li>Les templates de prompts juridiques et administratifs</li>
+          <li>Les scripts de productivite du cabinet</li>
+          <li>Le systeme d'automatisation etape par etape</li>
+          <li>Les procedures internes pretes a adapter</li>
+          <li>Les check-lists de validation</li>
+          <li>Les scenarios d'usage surs et rentables</li>
+          <li>Les mises a jour incluses</li>
+          <li>Bonus 1 - Pack Emails et Relances</li>
+          <li>Bonus 2 - Pack Syntheses et Resumes</li>
+          <li>Bonus 3 - Plan d'action 30 jours</li>
+          <li>Bonus 4 - Bibliotheque de cas d'usage cabinet</li>
+        </ul>
+        <p><strong>Ce n'est pas "du contenu". C'est une boite a leviers pour rendre votre cabinet plus leger, plus rapide et plus rentable.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container price-grid">
+      <div class="price-panel">
+        <h2>Pourquoi le prix est facile a justifier</h2>
+        <p>Un assistant competent coute souvent <strong>2 000 EUR a 4 000 EUR+ par mois</strong> en cout charge.</p>
+        <p>
+          Cabinet Augmente ne remplace pas un humain.
+          Il vous aide a absorber la charge, reduire le repetitif et retarder ou rentabiliser mieux vos recrutements.
+        </p>
+        <p>Si vous recuperez seulement 10h par semaine, l'investissement peut etre amorti tres vite.</p>
+      </div>
+      <div class="price-panel">
+        <h3>Investissement</h3>
+        <div class="price-tag">1 500 EUR a 3 000 EUR</div>
+        <p>Selon la formule choisie.</p>
+        <p class="small">Premium, parce que le gain attendu l'est aussi.</p>
+        <a href="#cta-final" class="btn">Je veux integrer Cabinet Augmente</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>FAQ</h2>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>Est-ce adapte a un avocat seul ?</h3>
+          <p>Oui. Souvent, c'est meme la que le gain est le plus visible.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Est-ce que ca remplace une assistante ?</h3>
+          <p>Non. Cela reduit surtout le volume de taches repetitives et ameliore votre productivite.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Faut-il deja utiliser l'IA ?</h3>
+          <p>Non. La methode est aussi pensee pour les profils sceptiques mais curieux.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Les resultats sont-ils rapides ?</h3>
+          <p>Oui, si vous appliquez les premiers workflows simples, les gains peuvent etre visibles des les premieres semaines.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Est-ce chronophage a deployer ?</h3>
+          <p>Non. Vous n'avez pas besoin de tout mettre en place d'un coup pour ressentir les benefices.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Et si je suis prudent sur la conformite ?</h3>
+          <p>C'est precisement la bonne approche. La methode repose sur la prudence, le tri et la validation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft center" id="cta-final">
+    <div class="container" style="max-width:920px;">
+      <span class="eyebrow">Decision</span>
+      <h2>Vous pouvez continuer a porter le cabinet sur vos epaules. Ou installer enfin un levier.</h2>
+      <p class="lead">
+        Cabinet Augmente n'est pas un pari sur la mode.
+        C'est une decision rationnelle pour reprendre du temps, de la marge et du controle.
+      </p>
+      <p>
+        Les avocats qui passeront a l'action maintenant auront un cabinet plus fluide,
+        plus reactif et plus rentable que ceux qui attendront encore.
+      </p>
+      <div class="cta-row" style="justify-content:center;">
+        <a href="#offre" class="btn">Oui, je veux decouvrir Cabinet Augmente</a>
+      </div>
+      <p class="proof">Places limitees pour preserver un niveau de qualite premium.</p>
+    </div>
+  </section>
+</body>
+</html>
